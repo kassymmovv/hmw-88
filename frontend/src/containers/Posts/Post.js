@@ -33,7 +33,7 @@ class Post extends Component {
                         key={post._id}
                         title={post.title}
                         id={post._id}
-                        author={post.author}
+                        author={post.author.username}
                         image={post.image}
                         date={post.datetime}
                         postId={post._id}

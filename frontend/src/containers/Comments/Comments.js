@@ -28,7 +28,6 @@ class Comments extends Component {
     render() {
 
         if (!this.props.post) return null;
-        console.log(this.props.match.params.id);
         const Obj = {
 
             post:this.props.post._id,
@@ -38,10 +37,13 @@ class Comments extends Component {
         return (
             <>
             <h1>{this.props.post.title}</h1>
+                <h3>{this.props.post.author.username}</h3>
                 <strong>{this.props.post.datetime}</strong>
                 <PostThumbNail image={this.props.post.image}/>
                 <p>{this.props.post.description}</p>
 
+                <div style={{paddingTop:'80px'}}> </div>
+                <h1>Add comment</h1>
                 <Form onSubmit={this.submitFormHandler}>
                 <FormGroup row>
                     <Label sm={2} for="title">Title</Label>

@@ -23,13 +23,13 @@ const upload = multer({storage});
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const items = await Post.find().populate('User');
+  const items = await Post.find().populate('author');
   res.send(items);
 });
 
 router.get('/:id', async (req, res) => {
   try {
-    const item = await Post.findById(req.params.id).populate('username');
+    const item = await Post.findById(req.params.id).populate('author');
 
     if (!item) {
       return res.status(404).send({message: 'Not found'});
